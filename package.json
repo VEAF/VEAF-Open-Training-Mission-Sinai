@@ -1,0 +1,11 @@
+{
+  "name": "veaf-open-training-mission-sinai",
+  "version": "1.0.0",
+  "description": "OpenTraining mission sinai",
+  "main": "",
+  "author": "Mitch, Zip",
+  "license": "MIT",
+  "dependencies": {
+    "veaf-mission-creation-tools": "^5.0.0"
+  }
+}
