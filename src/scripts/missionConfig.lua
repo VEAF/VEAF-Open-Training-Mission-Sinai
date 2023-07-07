@@ -193,6 +193,15 @@ if veafCombatZone then
             :setRadioGroupName("Training CAS")
     )
 
+    veafCombatZone.AddZone(
+        VeafCombatZone:new()
+            :setMissionEditorZoneName("combatZone_usinesPortFuad")
+            :setFriendlyName("Strike on Port Fuad factories")
+            :setBriefing("We will strike factories south of Port Fuad")
+            :setTraining(false)
+            :setRadioGroupName("Missions")
+    )
+
     veaf.loggers.get(veaf.Id):info("init - veafCombatZone")
     veafCombatZone.initialize()
     
