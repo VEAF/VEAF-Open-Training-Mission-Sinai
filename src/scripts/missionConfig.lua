@@ -184,6 +184,15 @@ if veafCombatZone then
     
     veaf.loggers.get(veaf.Id):info("Loading configuration")
 
+    veafCombatZone.AddZone(
+        VeafCombatZone:new()
+            :setMissionEditorZoneName("combatZone_rangeAradEasy")
+            :setFriendlyName("Training at Arad RANGE")
+            :setBriefing("The Arad RANGE (located 10 nm east of Arad city) is set-up for training")
+            :setTraining(true)
+            :setRadioGroupName("Training CAS")
+    )
+
     veaf.loggers.get(veaf.Id):info("init - veafCombatZone")
     veafCombatZone.initialize()
     
