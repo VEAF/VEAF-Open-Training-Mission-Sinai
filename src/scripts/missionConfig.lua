@@ -51,12 +51,12 @@ if veafQraManager then
     :start()
     ]]
 
-    QRA_Kirbit = VeafQRA:new()
-    :setName("QRA_Kirbit")
-    :setTriggerZone("QRA_Kirbit")
+    QRA_Kibrit = VeafQRA:new()
+    :setName("QRA_Kibrit")
+    :setTriggerZone("QRA_Kibrit")
     :setCoalition(coalition.side.RED)
     :addEnnemyCoalition(coalition.side.BLUE)
-    :setRandomGroupsToDeployByEnemyQuantity(1, { "QRA_Kirbit_Mig23x2", "QRA_Kirbit_Mig29Ax2" }, 1)
+    :setRandomGroupsToDeployByEnemyQuantity(1, { "QRA_Kibrit_Mig23x2", "QRA_Kibrit_Mig29Ax2" }, 1)
      --:setReactOnHelicopters() -- reacts when helicopters enter the zone
     :setDelayBeforeRearming(600) -- 15 seconds before the QRA is rearmed
     :setDelayBeforeActivating(60) -- 15 seconds before the QRA is activated, since the first enemy enters the zone
@@ -252,6 +252,9 @@ if veafNamedPoints then
     -- here you can add points of interest, that will be added to the default points
     local customPoints = {
     --     {name="RANGE KhalKhalah",point=coord.LLtoLO("33.036180", "37.196608")},
+        {name="Ben-Gurion",point={x=216922,y=0,z=347746}},
+        {name="Hatzerim",point={x=131634,y=0,z=328288}},
+        {name="Ramon Airbase",point={x=081094,y=0,z=330136}}
     }
     veaf.loggers.get(veaf.Id):info("init - veafNamedPoints")
     veafNamedPoints.initialize(customPoints)
