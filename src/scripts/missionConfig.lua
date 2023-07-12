@@ -50,6 +50,18 @@ if veafQraManager then
     :setSilent() --mutes this QRA only, VeafQRA.AllSilence has to be false for this to have an effect
     :start()
     ]]
+
+    QRA_Kirbit = VeafQRA:new()
+    :setName("QRA_Kirbit")
+    :setTriggerZone("QRA_Kirbit")
+    :setCoalition(coalition.side.RED)
+    :addEnnemyCoalition(coalition.side.BLUE)
+    :setRandomGroupsToDeployByEnemyQuantity(1, { "QRA_Kirbit_Mig23x2", "QRA_Kirbit_Mig29Ax2" }, 1)
+     --:setReactOnHelicopters() -- reacts when helicopters enter the zone
+    :setDelayBeforeRearming(600) -- 15 seconds before the QRA is rearmed
+    :setDelayBeforeActivating(60) -- 15 seconds before the QRA is activated, since the first enemy enters the zone
+    :setResetWhenLeavingZone()
+    :start()
 end
 
 --if QRA_Minevody then QRA_Minevody:stop() end --use this if you wish to stop the QRA from operating at any point (in a trigger etc.). It can be restarted with : if QRA_Minevody then QRA_Minevody:start() end
@@ -198,6 +210,15 @@ if veafCombatZone then
             :setMissionEditorZoneName("combatZone_usinesPortFuad")
             :setFriendlyName("Strike on Port Fuad factories")
             :setBriefing("We will strike factories south of Port Fuad")
+            :setTraining(false)
+            :setRadioGroupName("Missions")
+    )
+
+    veafCombatZone.AddZone(
+        VeafCombatZone:new()
+            :setMissionEditorZoneName("combatZone_CroiseurPortDamietta")
+            :setFriendlyName("Destroy the Pyotr Velikiy")
+            :setBriefing("Destroy the russian cruiser Pyotr Velikiy on the port of Damietta")
             :setTraining(false)
             :setRadioGroupName("Missions")
     )
