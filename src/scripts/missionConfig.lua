@@ -50,6 +50,18 @@ if veafQraManager then
     :setSilent() --mutes this QRA only, VeafQRA.AllSilence has to be false for this to have an effect
     :start()
     ]]
+
+    QRA_Kibrit = VeafQRA:new()
+    :setName("QRA_Kibrit")
+    :setTriggerZone("QRA_Kibrit")
+    :setCoalition(coalition.side.RED)
+    :addEnnemyCoalition(coalition.side.BLUE)
+    :setRandomGroupsToDeployByEnemyQuantity(1, { "QRA_Kibrit_Mig23x2", "QRA_Kibrit_Mig29Ax2" }, 1)
+     --:setReactOnHelicopters() -- reacts when helicopters enter the zone
+    :setDelayBeforeRearming(600) -- 15 seconds before the QRA is rearmed
+    :setDelayBeforeActivating(60) -- 15 seconds before the QRA is activated, since the first enemy enters the zone
+    :setResetWhenLeavingZone()
+    :start()
 end
 
 --if QRA_Minevody then QRA_Minevody:stop() end --use this if you wish to stop the QRA from operating at any point (in a trigger etc.). It can be restarted with : if QRA_Minevody then QRA_Minevody:start() end
@@ -184,6 +196,33 @@ if veafCombatZone then
     
     veaf.loggers.get(veaf.Id):info("Loading configuration")
 
+    veafCombatZone.AddZone(
+        VeafCombatZone:new()
+            :setMissionEditorZoneName("combatZone_rangeAradEasy")
+            :setFriendlyName("Training at Arad RANGE")
+            :setBriefing("The Arad RANGE (located 10 nm east of Arad city) is set-up for training")
+            :setTraining(true)
+            :setRadioGroupName("Training CAS")
+    )
+
+    veafCombatZone.AddZone(
+        VeafCombatZone:new()
+            :setMissionEditorZoneName("combatZone_usinesPortFuad")
+            :setFriendlyName("Strike on Port Fuad factories")
+            :setBriefing("We will strike factories south of Port Fuad. Coordinates of the industrial complex : N31.06.099 E032.19.804 7ft")
+            :setTraining(false)
+            :setRadioGroupName("Missions")
+    )
+
+    veafCombatZone.AddZone(
+        VeafCombatZone:new()
+            :setMissionEditorZoneName("combatZone_CroiseurPortDamietta")
+            :setFriendlyName("Destroy the Pyotr Velikiy")
+            :setBriefing("Destroy the russian cruiser Pyotr Velikiy on the port of Damietta. The ship is rearmed by a convoy going back and forth from a base located 4 Nm from the port.\nCoordinates of the ship : N31.27.301 E031.46.178 0ft\nCoordinates of the base : N31.24.286 E031.43.328 7ft")
+            :setTraining(false)
+            :setRadioGroupName("Missions")
+    )
+
     veaf.loggers.get(veaf.Id):info("init - veafCombatZone")
     veafCombatZone.initialize()
     
@@ -213,6 +252,9 @@ if veafNamedPoints then
     -- here you can add points of interest, that will be added to the default points
     local customPoints = {
     --     {name="RANGE KhalKhalah",point=coord.LLtoLO("33.036180", "37.196608")},
+        {name="Ben-Gurion",point={x=216922,y=0,z=347746}},
+        {name="Hatzerim",point={x=131634,y=0,z=328288}},
+        {name="Ramon Airbase",point={x=081094,y=0,z=330136}}
     }
     veaf.loggers.get(veaf.Id):info("init - veafNamedPoints")
     veafNamedPoints.initialize(customPoints)
