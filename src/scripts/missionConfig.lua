@@ -295,17 +295,22 @@ end
 -- configure CTLD
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if ctld then
-    -- uncomment (and adapt) the following lines to enable CTLD, its commands and its radio menu
-    
     veaf.loggers.get(veaf.Id):info("init - ctld")
     function configurationCallback()
         veaf.loggers.get(veaf.Id):info("configuring CTLD for %s", veaf.config.MISSION_NAME)
-        -- do what you have to do in CTLD before it is initialized
-        -- ctld.hoverPickup = false
-        -- ctld.slingLoad = true
       end
     ctld.initialize(configurationCallback)
-    
+end
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- configure CSAR
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+if csar then
+    veaf.loggers.get(veaf.Id):info("init - csar")
+    function configurationCallback()
+        veaf.loggers.get(veaf.Id):info("configuring CSAR for %s", veaf.config.MISSION_NAME)
+    end
+    csar.initialize(configurationCallback)
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
