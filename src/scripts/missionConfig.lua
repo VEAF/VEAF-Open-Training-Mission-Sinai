@@ -298,13 +298,22 @@ end
 -- configure CTLD
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if ctld then
- 
     veaf.loggers.get(veaf.Id):info("init - ctld")
     function configurationCallback()
         veaf.loggers.get(veaf.Id):info("configuring CTLD for %s", veaf.config.MISSION_NAME)
       end
     ctld.initialize(configurationCallback)
-    
+end
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- configure CSAR
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+if csar then
+    veaf.loggers.get(veaf.Id):info("init - csar")
+    function configurationCallback()
+        veaf.loggers.get(veaf.Id):info("configuring CSAR for %s", veaf.config.MISSION_NAME)
+    end
+    csar.initialize(configurationCallback)
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
