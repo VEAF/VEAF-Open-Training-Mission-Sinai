@@ -140,11 +140,14 @@ if veafAssets then
     veaf.loggers.get(veaf.Id):info("Loading configuration")
     veafAssets.Assets = {
 		-- list the assets in the mission below
-		-- {sort=1, name="CSG-01 Tarawa", description="Tarawa (LHA)", information="Tacan 11X TAA\nU226 (11)"},  
-		-- {sort=2, name="CSG-74 Stennis", description="Stennis (CVN)", information="Tacan 10X STS\nICLS 10\nU225 (10)"},  
-		-- {sort=2, name="CSG-71 Roosevelt", description="Roosevelt (CVN)", information="Tacan 12X RHR\nICLS 11\nU227 (12)"},  
-		-- {sort=3, name="T1-Arco-1", description="Arco-1 (KC-135)", information="Tacan 64Y\nU290.50 (20)\nZone OUEST", linked="T1-Arco-1 escort"}, 
-		-- {sort=4, name="T2-Shell-1", description="Shell-1 (KC-135 MPRS)", information="Tacan 62Y\nU290.30 (18)\nZone EST", linked="T2-Shell-1 escort"},  
+		{sort=1, name="CSG-01 Tarawa", description="Tarawa (LHA)", information="Tacan 14X TAA\nU225 (14)"},  
+		{sort=2, name="CSG-74 Stennis", description="Stennis (CVN)", information="Tacan 13X STS\nICLS 13\nU221 (13)"},  
+		{sort=3, name="CSG-71 Roosevelt", description="Roosevelt (CVN)", information="Tacan 12X RHR\nICLS 11\nU227 (12)"},  
+        {sort=4, name="CSG-59 Forrestal", description="Forrestal (CV)", information="Tacan 11X FOR\nICLS 11\nU222 (11)"},  
+		{sort=5, name="Texaco-1", description="Texaco 1 (KC-135)", information="Tacan 62Y\nU290.40 (19)\nZone frontière"}, --, linked="T1-Arco-1 escort"}, 
+		{sort=6, name="Shell-1", description="Shell 1 (KC-135 MPRS)", information="Tacan 60Y\nU290.10 (17)\nZone frontière"}, --, linked="T2-Shell-1 escort"},  
+        {sort=7, name="Agate", description="AFAC Agate (MQ-9)", information="L1687 V118.90 (19)", jtac=1687, freq=118.90, mod="am"}, 
+        {sort=8, name="Overlordsky", description="Overlordsky (A-50, RED)", information="V112.12"},
 		-- {sort=5, name="T3-Texaco-1", description="Texaco-1 (KC-135 MPRS)", information="Tacan 60Y\nU290.10 (17)\nZone OUEST", linked="T3-Texaco-1 escort"},  
 		-- {sort=6, name="T4-Shell-2", description="Shell-2 (KC-135)", information="Tacan 63Y\nU290.40 (19)\nZone EST", linked="T4-Shell-2 escort"},  
 		-- {sort=6, name="T5-Petrolsky", description="900 (IL-78M, RED)", information="U267", linked="T5-Petrolsky escort"},  
@@ -254,7 +257,7 @@ if veafNamedPoints then
     --     {name="RANGE KhalKhalah",point=coord.LLtoLO("33.036180", "37.196608")},
         {name="Ben-Gurion",point={x=216922,y=0,z=347746}},
         {name="Hatzerim",point={x=131634,y=0,z=328288}},
-        {name="Ramon Airbase",point={x=081094,y=0,z=330136}}
+        {name="Ramon Airbase",point={x=081094,y=0,z=330136}},
     }
     veaf.loggers.get(veaf.Id):info("init - veafNamedPoints")
     veafNamedPoints.initialize(customPoints)
@@ -295,11 +298,13 @@ end
 -- configure CTLD
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 if ctld then
+ 
     veaf.loggers.get(veaf.Id):info("init - ctld")
     function configurationCallback()
         veaf.loggers.get(veaf.Id):info("configuring CTLD for %s", veaf.config.MISSION_NAME)
       end
     ctld.initialize(configurationCallback)
+    
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
