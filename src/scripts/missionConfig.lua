@@ -468,3 +468,8 @@ end
 
 veaf.silenceAtcOnAllAirbases()
 
+-- Activate the new ATIS system by Flogas
+if veafWeather then
+    veafWeather.Active = true
+end
+
