@@ -81,24 +81,22 @@ if veafSpawn then
 end
 if veafGrass then
     -- uncomment (and adapt) the following lines to enable the Grass Runways and FARP decoration
-    
     veaf.loggers.get(veaf.Id):info("init - veafGrass")
     veafGrass.initialize()
-    
 end
 if veafCasMission then
     -- uncomment (and adapt) the following lines to enable the CAS mission module, its commands and its radio menu
-    
     veaf.loggers.get(veaf.Id):info("init - veafCasMission")
     veafCasMission.initialize()
-    
 end
 if veafTransportMission then
     -- uncomment (and adapt) the following lines to enable the Transport mission module, its commands and its radio menu
-    
     veaf.loggers.get(veaf.Id):info("init - veafTransportMission")
     veafTransportMission.initialize()
-    
+end
+if veafWeather then
+    veaf.loggers.get(veaf.Id):info("init - veafWeather")
+    veafWeather.initialize()
 end
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -467,9 +465,3 @@ end
 -- uncomment the following lines to silence the default ATC on all the airdromes
 
 veaf.silenceAtcOnAllAirbases()
-
--- Activate the new ATIS system by Flogas
-if veafWeather then
-    veafWeather.Active = true
-end
-
