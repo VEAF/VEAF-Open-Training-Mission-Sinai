@@ -1,5 +1,5 @@
 @echo off
-set MISSION_NAME=VEAF_OpenTraining_Sinai
+set MISSION_NAME=VEAF_OpenTraining_Sinai_ICAO_HECA
 echo.
 echo ----------------------------------------
 echo building %MISSION_NAME%
